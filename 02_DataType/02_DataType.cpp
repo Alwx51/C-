@@ -52,6 +52,6 @@ int main()
     int hamsterInOneDay;
     cout << "Daily feed consumption: ";
     cin >> hamsterInOneDay;
-    int hamsterIn30Days = hamsterIn30Days * days / kg;
+    int hamsterIn30Days = hamsterInOneDay * days / kg;
     cout << "Your hamster eats: " << hamsterIn30Days << "kg" << endl;
 }
