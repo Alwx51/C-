@@ -263,6 +263,9 @@ int main() {
 		}
 	}
 	cout << summa << endl;
+	cout << summa << endl;
+	cout << summa << endl;
+	cout << summa << endl;
 	
 	
 
