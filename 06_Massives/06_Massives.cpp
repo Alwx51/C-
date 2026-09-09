@@ -156,20 +156,43 @@ int main()
     //}
     ////ÍÀ ÄÎÄÀÒÊÎÂÓ ÎÖ²ÍÊÓ
     const int month = 12;
-    int arr11[month] = { 1,2,3,4,5,6,7,8,9,10,11,12 };
+    int arr11[month];
     int num1, num2;
     int summa = 0;
+    
+    int min,max;
     cout << "Enter 1 range: " << endl; cin >> num1;
     cout << "Enter 2 range: " << endl; cin >> num2;
-    for (int i = 0; i < month; i++)
+    for (int i = num1 - 1; i < num2; i++)
     {
-        cout << "Enter profit" << i << " " << endl;
-        summa += i;
+        cout << "Enter profit" << " " << i + 1<< ": " << endl;cin >> arr11[i];
     }
-    for (int i = num1; i < num2; i++)
+    min = arr11[num1 - 1];
+    max = arr11[num1 - 1];
+    for (int i = num1 - 1; i < num2; i++)
     {
+        summa += arr11[i];
+       
+       
+        
+        if (arr11[i]>max)
+        {
+            max = arr11[i];
+        }
+        if (arr11[i]<min)
+        {
+            min = arr11[i];
+        }
 
+        
     }
+    cout << "Summa negative elements = " << summa << endl;
+    cout << "Max element = " << max << endl;
+    cout << "Min element = " << min << endl;
+    //for (int i = num1; i < num2; i++)
+    //{
+
+    //}
 
     
 }
