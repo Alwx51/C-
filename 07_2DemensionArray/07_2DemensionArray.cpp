@@ -331,4 +331,5 @@ int main()
 
     }
     cout << "Summa of negative numbers: " << amount << endl;
+    cout << "Summa of negative numbers: " << amount << endl;
 }
