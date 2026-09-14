@@ -308,28 +308,60 @@ int main()
     //}
     //cout << "Max number: " << max << endl;
     //task10
-    const int rows = 5;//рядки
-    const int cols = 4;
-    int amount = 0;
-    int array1[rows][cols]{};
+    //const int rows = 5;//рядки
+    //const int cols = 4;
+    //int amount = 0;
+    //int array1[rows][cols]{};
+    //for (int i = 0; i < rows; i++)
+    //{
+    //    for (int j = 0; j < cols; j++)
+    //    {
+    //        array1[i][j] = - 10 + rand() % 40;
+    //        cout << right << setw(6) << array1[i][j] << " ";
+    //        if (array1[i][j] < 0)
+    //        {
+    //            amount+=array1[i][j];
+
+    //        }
+
+
+
+    //    }
+    //    cout << endl;
+
+    //}
+    //cout << "Summa of negative numbers: " << amount << endl;
+    //cout << "Summa of negative numbers: " << amount << endl;
+    const int rows = 11;
+    const int cols = 11;
+    int arr[rows][cols];
     for (int i = 0; i < rows; i++)
     {
         for (int j = 0; j < cols; j++)
         {
-            array1[i][j] = - 10 + rand() % 40;
-            cout << right << setw(6) << array1[i][j] << " ";
-            if (array1[i][j] < 0)
-            {
-                amount+=array1[i][j];
-
-            }
-
-
-
+            arr[i][j] = rand() % 90 + 10;
+            cout << arr[i][j] << " ";
         }
         cout << endl;
-
     }
-    cout << "Summa of negative numbers: " << amount << endl;
-    cout << "Summa of negative numbers: " << amount << endl;
+    cout << endl;
+    for (int i = 0; i < rows; i++)
+    {
+
+        for (int j = 0; j < cols; j++)
+        {
+            if (i <=j)
+            {
+                cout << arr[i][j] << " ";
+            }
+            else
+            {
+                cout << "   ";
+            }
+            
+            
+        }
+        cout << endl;
+    }
+
 }
