@@ -13,7 +13,7 @@ void InitArray1(int arr[], int size)
 {
 	for (int i = 0; i < size; i++)
 	{
-		arr[i] =rand() % 40-20;
+		arr[i] = rand() % 40 - 20;
 	}
 }
 void ShowArray(int arr[], int size)
@@ -24,7 +24,7 @@ void ShowArray(int arr[], int size)
 	}
 	cout << endl;
 }
-int LinearSearch(int arr[], int size,int key)
+int LinearSearch(int arr[], int size, int key)
 {
 	for (int i = 0; i < size; i++)
 	{
@@ -38,9 +38,9 @@ void BubbleSort(int arr[], int size)
 	int temp;
 	for (int i = 0; i < size; i++)
 	{
-		for (int j = size-1; j > i; j--)
+		for (int j = size - 1; j > i; j--)
 		{
-			if (arr[j - 1]>arr[j])
+			if (arr[j - 1] > arr[j])
 			{
 				temp = arr[j - 1];
 				arr[j - 1] = arr[j];
@@ -50,19 +50,19 @@ void BubbleSort(int arr[], int size)
 		}
 	}
 }
-void BubbleSort2(int arr[], int size)
+void BubbleSort2(int arr[], int left, int right)
 {
 	int temp;
-	for (int i = 0; i < size; i++)
+
+	for (int i = left; i <= right; i++)
 	{
-		for (int j = size-1; j > i; j--)
+		for (int j = right; j > i; j--)
 		{
-			if (arr[j - 1]>arr[j])
+			if (arr[j - 1] > arr[j])
 			{
 				temp = arr[j - 1];
 				arr[j - 1] = arr[j];
 				arr[j] = temp;
-
 			}
 		}
 	}
@@ -72,9 +72,9 @@ void BubbleSort1(int arr[], int size)
 	int temp;
 	for (int i = 0; i < size; i++)
 	{
-		for (int j = size-1; j > i; j--)
+		for (int j = size - 1; j > i; j--)
 		{
-			if (arr[j - 1]<arr[j])
+			if (arr[j - 1] < arr[j])
 			{
 				temp = arr[j - 1];
 				arr[j - 1] = arr[j];
@@ -93,7 +93,7 @@ void ShakeSort(int arr[], int size)
 	{
 		for (int j = right; j >= left; j--)
 		{
-			if (arr[j-1]>arr[j])
+			if (arr[j - 1] > arr[j])
 			{
 				temp = arr[j - 1];
 				arr[j - 1] = arr[j];
@@ -115,7 +115,7 @@ void ShakeSort(int arr[], int size)
 		right = index - 1;
 
 
-	} while (left<right);
+	} while (left < right);
 }
 void selectSort(int arr[], int size)
 {
@@ -124,9 +124,9 @@ void selectSort(int arr[], int size)
 	{
 		index = i;
 		temp = arr[i];
-		for (int j = i+1; j < size; j++)
+		for (int j = i + 1; j < size; j++)
 		{
-			if (arr[j]<temp)
+			if (arr[j] < temp)
 			{
 				temp = arr[j];
 				index = j;
@@ -151,43 +151,30 @@ void Sort(int arr[], int size, int parametr)
 	}
 	ShowArray(arr, size);
 }
-void findStart(int arr[], int size)
+int findStart(int arr[], int size)
 {
-	int start;
-	int index = -1;
 	for (int i = 0; i < size; i++)
 	{
-		
-		index += 1;
-
-		if (arr[i]<0)
+		if (arr[i] < 0)
 		{
-			start = arr[i];
-			break;
+			return i;
 		}
 	}
-	cout << start << endl;
-	cout << index << endl;
-	
+
+
 }
-void findEnd(int arr[], int size)
-{
-	int end;
-	int index = 10;
-	for (int i = 9; i < size; i--)
-	{
-		
-		index -= 1;
 
-		if (arr[i]<0)
+int findEnd(int arr[], int size)
+{
+	for (int i = size - 1; i >= 0; i--)
+	{
+		if (arr[i] < 0)
 		{
-			end = arr[i];
-			break;
+			return i;
 		}
 	}
-	cout << end << endl;
-	cout << index << endl;
-	
+
+
 }
 int main()
 {
@@ -200,8 +187,8 @@ int main()
 	/*BubbleSort(arr, size);*/
 /*	ShakeSort(arr, size);
 	cout << endl;
-	ShowArray(arr, size);    */                    
-	
+	ShowArray(arr, size);    */
+
 
 	//int searchKey,IndexFind;
 	//cout << "Enter search key: "; cin >> searchKey;
@@ -233,7 +220,9 @@ int main()
 	ShowArray(arr1, size1);
 	findStart(arr1, size1);
 	findEnd(arr1, size1);
+	BubbleSort2(arr1, findStart(arr1, size1), findEnd(arr1, size1));
+	ShowArray(arr1, size1);
 
-	
+
 
 }
