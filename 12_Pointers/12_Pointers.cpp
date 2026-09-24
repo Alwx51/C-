@@ -47,6 +47,25 @@ int* MaxElement(int* arr, int size)
     }
     return max;
 }
+int* MinElement(int* arr, int size)
+{
+    int* min = arr;
+    for (int i = 0; i < size; i++)
+    {
+        if (*(arr+i)<*min)
+        {
+            min = arr + i;
+        }
+    }
+    return min;
+}
+void reverseNum(int* max,int* min)
+{
+    int a = *max;
+    *max = *min;
+    *min = a;
+
+}
 void reverseShow(int* arr, int size)
 {
     int* parr = &arr[size-1];
@@ -54,6 +73,27 @@ void reverseShow(int* arr, int size)
     {
         cout << *parr << " ";
         parr--;
+    }
+}
+void summa(int* arr, int size)
+{
+    int* parr = &arr[0];
+    int summa = 0;
+    for (int i = 0; i < size; i++)
+    {
+        summa += *(parr + i);
+    }
+    cout << "Summa = " << summa << endl;
+}
+void reverse(int* arr, int size)
+{
+    
+    for (int i = 0; i < size-1; i++)
+    {
+        int* parr = arr + i;
+        int a = *parr;
+        *parr = *(parr + 1);
+        *(parr + 1) = a;
     }
 }
 int main()
@@ -92,10 +132,24 @@ int main()
     InitArray(arr, size);
     ShowArray(arr, size);
     reverseShow(arr, size);
+    summa(arr, size);
     //3
     int arr1[size]{};
     InitArray(arr1, size);
     ShowArray(arr1, size);
+    int* max = MaxElement(arr1, size);
+    int* min = MinElement(arr1, size);
+    reverseNum(max, min);
+
+    cout << "Result" << endl;
+    ShowArray(arr1, size);
+    //4
+    int arr2[size]{};
+    InitArray(arr2, size);
+    ShowArray(arr2, size);
+    reverse(arr2, size);
+    cout << "Result" << endl;
+    ShowArray(arr2, size);
 
     
     //const int size = 10;
