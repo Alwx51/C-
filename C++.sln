@@ -33,6 +33,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "08_homework", "08_homework\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "12_Pointers", "12_Pointers\12_Pointers.vcxproj", "{56F8EF33-18E7-4BF9-B34F-4BA261F211AD}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "13_DynamicMemory", "13_DynamicMemory\13_DynamicMemory.vcxproj", "{5A24EC5C-54CC-4112-8D84-1169D02DEA26}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -223,6 +225,18 @@ Global
 		{56F8EF33-18E7-4BF9-B34F-4BA261F211AD}.Release|x64.Build.0 = Release|x64
 		{56F8EF33-18E7-4BF9-B34F-4BA261F211AD}.Release|x86.ActiveCfg = Release|Win32
 		{56F8EF33-18E7-4BF9-B34F-4BA261F211AD}.Release|x86.Build.0 = Release|Win32
+		{5A24EC5C-54CC-4112-8D84-1169D02DEA26}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{5A24EC5C-54CC-4112-8D84-1169D02DEA26}.Debug|Any CPU.Build.0 = Debug|x64
+		{5A24EC5C-54CC-4112-8D84-1169D02DEA26}.Debug|x64.ActiveCfg = Debug|x64
+		{5A24EC5C-54CC-4112-8D84-1169D02DEA26}.Debug|x64.Build.0 = Debug|x64
+		{5A24EC5C-54CC-4112-8D84-1169D02DEA26}.Debug|x86.ActiveCfg = Debug|Win32
+		{5A24EC5C-54CC-4112-8D84-1169D02DEA26}.Debug|x86.Build.0 = Debug|Win32
+		{5A24EC5C-54CC-4112-8D84-1169D02DEA26}.Release|Any CPU.ActiveCfg = Release|x64
+		{5A24EC5C-54CC-4112-8D84-1169D02DEA26}.Release|Any CPU.Build.0 = Release|x64
+		{5A24EC5C-54CC-4112-8D84-1169D02DEA26}.Release|x64.ActiveCfg = Release|x64
+		{5A24EC5C-54CC-4112-8D84-1169D02DEA26}.Release|x64.Build.0 = Release|x64
+		{5A24EC5C-54CC-4112-8D84-1169D02DEA26}.Release|x86.ActiveCfg = Release|Win32
+		{5A24EC5C-54CC-4112-8D84-1169D02DEA26}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
