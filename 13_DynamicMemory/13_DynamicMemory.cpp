@@ -84,6 +84,53 @@ int* DeleteLastElement(int* arr, int* size)
     return temp;
 
 }
+int* DeleteElementByIndex(int* arr,int* size,int index)
+{ 
+    int j = 0;
+    int* temp = new int[*size - 1];
+    for (int i = 0; i < *size; i++)
+    {
+        if (i == index)
+        {
+            continue;
+        }
+        temp[j] = arr[i];
+        j++;
+        
+        
+    }
+    delete[]arr;
+    (*size)--;
+    return temp;
+
+}
+int* AddElementByIndex(int* arr, int* size, int index, int num)
+{
+    int j = 0;
+    int* temp = new int[*size + 1];
+
+    for (int i = 0; i < *size; i++)
+    {
+        if (i == index)
+        {
+            temp[j] = num;
+            j++;
+        }
+
+        temp[j] = arr[i];
+        j++;
+    }
+
+    if (index == *size)
+    {
+        temp[j] = num;
+    }
+
+    delete[] arr;
+    (*size)++;
+
+    return temp;
+}
 int main()
 {
     srand(time(0));
@@ -182,9 +229,24 @@ int main()
     //delete pc;
     //2
     int size = 3;
+    int index;
+    int num;
+    cout << "Enter size: ";cin >> size;
+    int* psize = &size;
     int* arr1 = createNewArr(size);
     InitNewArr(arr1,size);
+    
     ShowArr(arr1, size);
-    DeleteLastElement(arr1,size);
+    arr1 = DeleteLastElement(arr1, psize);
+    ShowArr(arr1, size);
+    cout << "Enter index: ";cin >> index;
+    arr1 = DeleteElementByIndex(arr1, psize,index);
+    ShowArr(arr1, size);
+    cout << "Enter index: ";cin >> index;
+    cout << "Enter number: ";cin >> num;
+    arr1 = AddElementByIndex(arr1, psize, index, num);
+    ShowArr(arr1, size);
+    
+  
 
 }
