@@ -113,17 +113,33 @@ int** addColToTheEnd(int** arr, int rows, int& cols)
 int** addColToTheStart(int** arr, int rows, int& cols)
 {
 	int** temp = new int* [rows];
+
 	for (int i = 0; i < rows; i++)
 	{
 		temp[i] = new int[cols + 1];
 	}
+
 	for (int i = 0; i < rows; i++)
 	{
 		for (int j = 0; j < cols; j++)
 		{
-			temp[i][j] = arr[i][j];
+			temp[i][j + 1] = arr[i][j];
 		}
 	}
+
+	for (int i = 0; i < rows; i++)
+	{
+		delete[] arr[i];
+	}
+	delete[] arr;
+
+	for (int i = 0; i < rows; i++)
+	{
+		temp[i][0] = 5;
+	}
+
+	cols++;
+	return temp;
 }
 
 int** deleteRow(int** arr, int rows, int cols)
@@ -213,7 +229,8 @@ int main()
 	arr = deleteRowByIndex(arr, rows, cols, 3);
 	ShowArray(arr, rows, cols);
 	//4
-
+	arr = addColToTheStart(arr, rows, cols);
+	ShowArray(arr, rows, cols);
 	/*for (int i = 0; i < rows; i++)
 	{
 		delete[] arr[i];
