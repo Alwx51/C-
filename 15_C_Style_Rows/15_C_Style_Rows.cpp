@@ -78,7 +78,7 @@ void TopTable()
         << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196)
         << char(180) << endl;
 }
-void Point1()
+void PointOne()
 {
     cout << char(179) << setw(4) << left << "1"
         << char(179) << setw(8) << left << "P196"
@@ -98,7 +98,7 @@ void Point1()
         << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196)
         << char(180) << endl;
 }
-void Point2()
+void PointTwo()
 {
     cout << char(179) << setw(4) << left << "2"
         << char(179) << setw(8) << left << "P020"
@@ -118,7 +118,7 @@ void Point2()
         << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196)
         << char(180) << endl;
 }
-void Point3()
+void PointThree()
 {
     cout << char(179) << setw(4) << left << "3"
         << char(179) << setw(8) << left << "P111"
@@ -362,9 +362,9 @@ int main()
     //table
     
     TopTable();
-    Point1();
-    Point2();
-    Point3();
+    PointOne();
+    PointTwo();
+    PointThree();
     FuncTable();
     FuncTable();
     FuncTable();
