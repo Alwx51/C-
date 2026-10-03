@@ -272,7 +272,7 @@ int main()
 	//newBoiler = InputBoiler(newBoiler);
 	//ShowBoiler(newBoiler);
 	//4
-	Car car = { "Black","Tesla Y",{"BK",3425,"HP"}};
+	Car car = { "Black","Tesla Y",{"BK",3425,"KL"}};
 	ShowCar(car);
 
 	Car newCar = {};
