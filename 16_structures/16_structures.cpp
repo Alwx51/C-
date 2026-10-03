@@ -70,6 +70,18 @@ struct Boiler
 	int temperature;
 	
 };
+struct Number
+{
+	char first[3];
+	int second;
+	char third[3];
+};
+struct Car
+{
+	char color[20];
+	char model[20];
+	Number number;
+};
 void ShowWorker(Worker& worker)
 {
 	cout << "Name: " << worker.name << endl;
@@ -92,6 +104,15 @@ void ShowWashingMachine(WashingMachine& machine)
 	cout << "Power: " << machine.power << endl;
 	cout << "Speed: " << machine.speed << endl;
 	cout << "Temp: " << machine.temp << endl;
+	
+}
+void ShowCar(Car& car)
+{
+	cout << "Color: " << car.color << endl;
+	cout << "Model: " << car.model << endl;
+	cout << "Number: " << car.number.first << car.number.second<<
+		car.number.third<<endl;
+	
 	
 }
 void ShowIron(Iron& iron)
@@ -142,6 +163,18 @@ Iron InputIron(Iron iron)
 
 	
 	return iron;
+}
+Car InputCar(Car car)
+{
+	cout << "Enter color: "; cin >> car.color;
+	cout << "Enter model: "; cin >> car.model;
+	cout << "Enter the first part of the number: "; cin >> car.number.first;
+	cout << "Enter the second part of the number: "; cin >> car.number.second;
+	cout << "Enter the third part of the number: "; cin >> car.number.third;
+	
+
+	
+	return car;
 }
 Boiler InputBoiler(Boiler boiler)
 {
@@ -218,27 +251,33 @@ int main()
 	cout << "sizeof date --> " << sizeof(worker) << endl;
 
 	//1
-	WashingMachine machine = { "samsung","gray",50,50,50,22,15,12 };
-	ShowWashingMachine(machine);
+	//WashingMachine machine = { "samsung","gray",50,50,50,22,15,12 };
+	//ShowWashingMachine(machine);
 
-	WashingMachine newMachine = {};
-	newMachine = InputWashingMachine(newMachine);
-	ShowWashingMachine(newMachine);
+	//WashingMachine newMachine = {};
+	//newMachine = InputWashingMachine(newMachine);
+	//ShowWashingMachine(newMachine);
 	//2
-	Iron iron = { "hp","aewg9w","pink", 6,100,1,55 };
-	ShowIron(iron);
+	//Iron iron = { "hp","aewg9w","pink", 6,100,1,55 };
+	//ShowIron(iron);
 
-	Iron newIron = {};
-	newIron = InputIron(newIron);
-	ShowIron(newIron);
+	//Iron newIron = {};
+	//newIron = InputIron(newIron);
+	//ShowIron(newIron);
 	//3
-	Boiler boiler = { "apple","red",10,5,100 };
-	ShowBoiler(boiler);
+	//Boiler boiler = { "apple","red",10,5,100 };
+	//ShowBoiler(boiler);
 
-	Boiler newBoiler = {};
-	newBoiler = InputBoiler(newBoiler);
-	ShowBoiler(newBoiler);
+	//Boiler newBoiler = {};
+	//newBoiler = InputBoiler(newBoiler);
+	//ShowBoiler(newBoiler);
+	//4
+	Car car = { "Black","Tesla Y",{"BK",3425,"HP"}};
+	ShowCar(car);
 
+	Car newCar = {};
+	newCar = InputCar(newCar);
+	ShowCar(newCar);
 
 
 }
