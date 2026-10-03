@@ -37,6 +37,16 @@ int showLen(char string3[])
     return character;
 }
 
+void FuncTable()
+{
+    cout << setw(5) << left << char(179)
+        << setw(9) << left << char(179)
+        << setw(17) << left << char(179)
+        << setw(10) << left << char(179)
+        << setw(9) << left << char(179)
+        << char(179) << endl;
+}
+
 int main()
 {
     //C-Style
@@ -222,24 +232,101 @@ int main()
     int len = showLen(string3);
     cout << len << endl;*/
     //5
-    char string4[255];
-    char string5[255];
-    int index = 0;
-    cout << "Enter string: ";
-    cin.getline(string4, 255);
-    for (int i = 0; i < strlen(string4); i++)
-    {
-        
-        
-     
-        if (string4[i] == 'h')
-        {
-            continue;
-        }
-        string5[index] = string4[i];
-        index++;
-        
-    }
-    string5[index] = '\0';
-    cout << string5 << endl;
+    //char string4[255];
+    //char string5[255];
+    //int index = 0;
+    //cout << "Enter string: ";
+    //cin.getline(string4, 255);
+    //for (int i = 0; i < strlen(string4); i++)
+    //{
+    //    
+    //    
+    // 
+    //    if (string4[i] == 'h')
+    //    {
+    //        continue;
+    //    }
+    //    string5[index] = string4[i];
+    //    index++;
+    //    
+    //}
+    //string5[index] = '\0';
+    //cout << string5 << endl;
+
+    //table
+    
+    cout << char(218)
+    << char(196) << char(196) << char(196) << char(196)
+    << char(194)
+    << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196)
+    << char(194)
+    << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196)<< char(196)<< char(196)<< char(196)<< char(196)
+    << char(194)
+    << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196)
+    << char(194)
+    << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196)
+    << char(191) << endl;
+
+    cout << char(179) << setw(4)<<left<<"No"
+        << char(179) << setw(8) << left<<"Item"
+        << char(179) << setw(16) << left << "Description"
+        << char(179) << setw(9) << left << "Quantity"
+        << char(179) << setw(8) << left << "Price"
+        << char(179) << endl;
+    cout << char(195)
+        << char(196) << char(196) << char(196) << char(196)
+        << char(197)
+        << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196)
+        << char(197)
+        << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196)<< char(196)<< char(196)<< char(196)<< char(196)
+        << char(197)
+        << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196)
+        << char(197)
+        << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196)
+        << char(180) << endl;
+    cout << char(179) << setw(4) << left << "1"
+        << char(179) << setw(8) << left << "P196"
+        << char(179) << setw(12) << left << "Samsung Color IV"
+        << char(179) << setw(9) << left << "1"
+        << char(179) << setw(8) << left << "$ 829.00"
+        << char(179) << endl;
+    cout << char(195)
+        << char(196) << char(196) << char(196) << char(196)
+        << char(197)
+        << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196)
+        << char(197)
+        << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196)<< char(196)<< char(196)<< char(196)<< char(196)
+        << char(197)
+        << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196)
+        << char(197)
+        << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196)
+        << char(180) << endl;
+    cout << char(179) << setw(4) << left << "2"
+        << char(179) << setw(8) << left << "P020"
+        << char(179) << setw(16) << left << "Uniden Handset"
+        << char(179) << setw(9) << left << "1"
+        << char(179) << setw(8) << left << "$ 29.00"
+        << char(179) << endl;
+    cout << char(195)
+        << char(196) << char(196) << char(196) << char(196)
+        << char(197)
+        << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196)
+        << char(197)
+        << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196)
+        << char(197)
+        << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196)
+        << char(197)
+        << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196) << char(196)
+        << char(180) << endl;
+    cout << char(179) << setw(4) << left << "3"
+        << char(179) << setw(8) << left << "P111"
+        << char(179) << setw(16) << left << "Folder Blank"
+        << char(179) << setw(9) << left << "1"
+        << char(179) << setw(8) << left << "$ 2.70"
+        << char(179) << endl;
+    FuncTable();
+    FuncTable();
+    FuncTable();
+    FuncTable();
+    FuncTable();
 }
