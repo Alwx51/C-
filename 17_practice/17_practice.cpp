@@ -37,6 +37,27 @@ Book* AddNewBook(Book* book, int* size, Book newBook)
     return temp;
 }
 
+Book* DeleteBookById(Book* arr, int* size, int id)
+{
+    int j = 0;
+    Book* temp = new Book[*size - 1];
+    for (int i = 0; i < *size; i++)
+    {
+        if (arr[i].id == id)
+        {
+            continue;
+        }
+        temp[j] = arr[i];
+        j++;
+
+
+    }
+    delete[]arr;
+    (*size)--;
+    return temp;
+
+}
+
 void ChangePrice(Book* arr, int size, int id)
 {
     for (int i = 0; i < size; i++)
@@ -162,12 +183,13 @@ int main()
             SearchByGenre(name, arr, size);
             break;
         case 7:
-            cout << "Enter book's id: ";
-            cin >> id;
-            ChangePrice(arr, size, id);
+            arr = AddNewBook(arr, &size, { 11,"Title11","11","11","11",11,2000 });
             break;
         case 8:
-            arr = AddNewBook(arr, &size, { 11,"Title11","11","11","11",11,2000 });
+            int ID;
+            cout << "Enter id for delete: ";
+            cin >> ID;
+            arr = DeleteBookById(arr, &size, ID);
             break;
         default:
             cout << "Error choice" << endl;
