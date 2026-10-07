@@ -1,5 +1,6 @@
 #include <iostream>
 #include <conio.h>
+#include <fstream>
 using namespace std;
 
 struct Book
@@ -11,7 +12,42 @@ struct Book
     char genre[30];
     int year;
     float price;
+
+
+    void SaveToFile()
+    {
+
+        ofstream out("library.txt", ios_base::app);
+        out << id;
+        out << ":";
+        out << name;
+        out << ":";
+        out << author;
+        out << ":";
+        out << publishers;
+        out << ":";
+        out << genre;
+        out << ":";
+        out << year;
+        out << ":";
+        out << price;
+        out << "|";
+        out.close();
+
+    }
+    void Show()
+    {
+        cout << "Id: " << id << " Name: " << name << " Author: " << author << "Publishers: "<<publishers<<"Genre: "<<genre<<"Year: "<<year<<"Price: "<<price<<endl;
+    }
 };
+
+void ShowBooks(Book* h, int size)
+{
+    for (int i = 0; i < size; i++)
+    {
+        h[i].Show();
+    }
+}
 
 void ShowBook(Book& book)
 {
@@ -32,6 +68,7 @@ Book* AddNewBook(Book* book, int* size, Book newBook)
         temp[i] = book[i];
     }
     temp[*size] = newBook;
+    temp[*size].SaveToFile();
     delete[]book;
     (*size)++;
     return temp;
@@ -90,6 +127,7 @@ void SearchByGenre(char genre[], Book* arr, int size)
         }
     }
 }
+
 
 int main()
 {
