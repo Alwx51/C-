@@ -1,15 +1,17 @@
 #include <iostream>
 #include <conio.h>
 #include <fstream>
+#include <cstring>
+#include <cstdlib>
 using namespace std;
 
 struct Book
 {
     int id;
-    char name[30];
-    char author[30];
-    char publishers[30];
-    char genre[30];
+    char name[50];
+    char author[50];
+    char publishers[50];
+    char genre[50];
     int year;
     float price;
 
@@ -38,6 +40,27 @@ struct Book
     void Show()
     {
         cout << "Id: " << id << " Name: " << name << " Author: " << author << "Publishers: "<<publishers<<"Genre: "<<genre<<"Year: "<<year<<"Price: "<<price<<endl;
+    }
+    void FillFromFile(int idF, char* nameF, char* authorF, char* publishersF, char* genreF, int yearF, float priceF)
+    {
+        id = idF;
+        strcpy_s(name, 50,nameF);
+        strcpy_s(author, 50,authorF);
+        strcpy_s(publishers, 50,publishersF);
+        strcpy_s(genre, 50,genreF);
+        year = yearF;
+        price = priceF;
+
+    }
+    void Copy(Book h)
+    {
+        id = h.id;
+        strcpy_s(name, 50,h.name);
+        strcpy_s(author, 50,h.author);
+        strcpy_s(publishers, 50,h.publishers);
+        strcpy_s(genre, 50,h.genre);
+        year = h.year;
+        price = h.price;
     }
 };
 
@@ -149,12 +172,74 @@ void SearchByGenre(char genre[], Book* arr, int size)
     }
 }
 
+void ReadFromFile(Book*& arr, int& size)
+{
+    ifstream in("library.txt");
+
+    if (!in)
+    {
+        cout << "File not found!" << endl;
+        return;
+    }
+
+    delete[] arr;
+    arr = nullptr;
+    size = 0;
+
+    char bid[50];
+    char bname[50];
+    char bauthor[50];
+    char bpublishers[50];
+    char bgenre[50];
+    char byear[50];
+    char bprice[50];
+
+    while (in.getline(bid, 50, ':'))
+    {
+        in.getline(bname, 50, ':');
+        in.getline(bauthor, 50, ':');
+        in.getline(bpublishers, 50, ':');
+        in.getline(bgenre, 50, ':');
+        in.getline(byear, 50, ':');
+        in.getline(bprice, 50, '|');
+
+        int id = atoi(bid);
+        int year = atoi(byear);
+        float price = atof(bprice);
+
+        Book readBook;
+        readBook.FillFromFile(id,bname,bauthor,bpublishers,bgenre,year,price);
+
+        Book* temp = new Book[size + 1];
+
+        for (int i = 0; i < size; i++)
+        {
+            temp[i] = arr[i];
+        }
+
+        temp[size] = readBook;
+
+        delete[] arr;
+        arr = temp;
+
+        size++;
+    }
+
+    in.close();
+}
+
+
 
 int main()
 {
     int choice;
     char name[50];
     int id;
+    char author[50];
+    char publishers[50];
+    char genre[50];
+    int year;
+    
     int size = 10;
     Book* arr = new Book[size]{
         {1, "Kobzar", "Taras Shevchenko", "Osnovy", "Poetry", 1840, 250},
@@ -180,6 +265,7 @@ int main()
         cout << "Search by genre                              [6]" << endl;
         cout << "Add book                                     [7]" << endl;
         cout << "Delete book                                  [8]" << endl;
+        cout << "Read file                                    [9]" << endl;
         cout << "Exit                                         [0]" << endl;
         cin >> choice;
         cin.ignore();
@@ -221,13 +307,31 @@ int main()
             SearchByGenre(name, arr, size);
             break;
         case 7:
-            arr = AddNewBook(arr, &size, { 11,"Title11","11","11","11",11,2000 });
+			Book newBook;
+            cout << "Enter id: ";cin >> newBook.id;
+            cin.ignore();
+            cout << "Enter name: ";cin.getline(newBook.name, 50);
+            cout << "Enter author: ";cin.getline(newBook.author, 50);
+            cout << "Enter publishers: ";cin.getline(newBook.publishers, 50);
+            cout << "Enter genre: ";cin.getline(newBook.genre, 50);
+            cout << "Enter year: ";cin >> newBook.year;
+            cout << "Enter price: ";cin >> newBook.price;
+            arr = AddNewBook(arr, &size, newBook);
             break;
         case 8:
             int ID;
             cout << "Enter id for delete: ";
             cin >> ID;
             arr = DeleteBookById(arr, &size, ID);
+            break;
+        case 9:
+            ReadFromFile(arr, size);
+            cout << "Books read from file!" << endl;
+            for (int i = 0; i < size; i++)
+            {
+                ShowBook(arr[i]);
+            }
+
             break;
         default:
             cout << "Error choice" << endl;
