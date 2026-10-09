@@ -278,6 +278,7 @@ int main()
 	Car newCar = {};
 	newCar = InputCar(newCar);
 	ShowCar(newCar);
+	ShowCar(newCar);
 
 
 }
